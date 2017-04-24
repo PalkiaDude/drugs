@@ -15,4 +15,9 @@ public function drugged(PlayerInteractEvent $event){
 $player = $event->getServer()->getPlayer();
 $level = $player->getLevel();
 if($player->getItemInHand() = Item::get(280){
-$player->spawnEntity(Entity::get(65), $level;
+$entity = $player->spawnEntity(Entity::get(65), $level);
+$entity->setMotion($player->getLineOfSight()->getDirection()->multiply(3));
+  }
+   }
+}
+
