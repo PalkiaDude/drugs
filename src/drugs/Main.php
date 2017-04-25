@@ -28,4 +28,9 @@ public function joinserver(PlayerJoinEvent $event){
   }else{
     $player->setJoinMessage("");
 }
+}
+public function deathu(PlayerDeathEvent $event){
+$player = $event->getServer()->getPlayer();
+$playerPos = $player->getPos();
+$event->createEntity
 
