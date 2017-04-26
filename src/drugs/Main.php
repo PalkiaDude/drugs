@@ -15,7 +15,7 @@ public function onEnable(){
 public function drugged(PlayerInteractEvent $event){
 $player = $event->getServer()->getPlayer();
 $level = $player->getLevel();
-if($player->getItemInHand() = Item::get(388){
+if($player->getItemInHand() = Item::get(369){
 $entity = $player->createEntity(Entity::get(65), $player->getLineOfSight);
 $entity->setMotion($player->getLineOfSight()->getDirection()->multiply(3));
   }
@@ -31,6 +31,11 @@ public function joinserver(PlayerJoinEvent $event){
 }
 public function deathu(PlayerDeathEvent $event){
 $player = $event->getServer()->getPlayer();
+$playerN = $player->getNameTag();
 $playerPos = $player->getPos();
-$event->createEntity
+$zombie = $event->createEntity(Entity::get(32), $playerPos);
+$zombie->setNameTag($player);
+$player->setDeathMessage($player". has been eliminated!");
+$player->setGameMode(3);
+}
 
