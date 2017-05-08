@@ -34,8 +34,10 @@ $player = $event->getServer()->getPlayer();
 $playerN = $player->getNameTag();
 $playerPos = $player->getPos();
 $zombie = $event->createEntity(Entity::get(32), $playerPos);
-$zombie->setNameTag($player);
-$player->setDeathMessage($player". has been eliminated!");
+$zombie->setNameTag($playerN);
+$player->setDeathMessage($playerN". has been eliminated!");
 $player->setGameMode(3);
 }
+
+public function fire(EntityDamageByEntityEvent $event){
 
