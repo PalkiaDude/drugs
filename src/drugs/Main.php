@@ -2,8 +2,10 @@
 namespace drugs;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerInteractEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\entity\PrimedTNT;
+use pocketmine\entity\Snowball;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Player;
 use pocketmine\Server;
@@ -24,7 +26,7 @@ public function joinserver(PlayerJoinEvent $event){
   $player = $event->getServer()->getPlayer();
   $playerOp = $player->isOp();
   if($playerOp = true){
-    $player->setJoinMessage("An Official Moderator has joined the game!);
+    $player->setJoinMessage("An Official Moderator has joined the game!");
   }else{
     $player->setJoinMessage("");
 }
@@ -40,4 +42,11 @@ $player->setGameMode(3);
 }
 
 public function fire(EntityDamageByEntityEvent $event){
+$damager = $event->getDamager();
+$entity = $event->getEntity();
+if($damager instanceof Snowball){
+if($entity instanceof Player){
+$entity->setOnFire(100);
+}
+}
 
